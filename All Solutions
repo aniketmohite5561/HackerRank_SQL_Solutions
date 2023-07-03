@@ -4,17 +4,55 @@
 Solution:-
   SELECT * FROM CITY
   WHERE POPULATION >100000 AND COUNTRYCODE = 'USA';
-
+--------------------------------------------------------------------------------------
 2) Write a query to find the corresponding Western Longitude value for the greatest value of the Northern Latitudes less than 137.2345 up to 4 decimal places.
 
 Solution:-
-SELECT ROUND(LONG_W,4) FROM STATION
-WHERE LAT_N = (SELECT MAX(LAT_N) FROM STATION WHERE LAT_N < 137.2345);
-
-3) Query the smallest Northern Latitude (LAT_N) from STATION that is greater than 38.7780. Round your answer to  decimal places.
+  SELECT ROUND(LONG_W,4) FROM STATION
+  WHERE LAT_N = (SELECT MAX(LAT_N) FROM STATION WHERE LAT_N < 137.2345);
+--------------------------------------------------------------------------------------
+3) Query the smallest Northern Latitude (LAT_N) from STATION that is greater than 38.7780. Round your answer to 4 decimal places.
 
 Solution:-
   SELECT ROUND(MIN(LAT_N),4) FROM STATION
   WHERE LAT_N > 38.7780;
+--------------------------------------------------------------------------------------
+4) Query the Western Longitude (LONG_W)where the smallest Northern Latitude (LAT_N) in STATION is greater than . Round your answer to 4 decimal places.
 
-4) 
+Solution:-
+  SELECT ROUND(LONG_W,4) FROM STATION
+  WHERE LAT_N= (SELECT MIN(LAT_N) FROM STATION WHERE LAT_N >38.7780);
+--------------------------------------------------------------------------------------
+5) Query a count of the number of cities in CITY having a Population larger than 100,000.
+
+Solution:-
+  SELECT COUNT(POPULATION) FROM CITY
+  WHERE POPULATION > 100000;
+--------------------------------------------------------------------------------------
+6) Query the average population of all cities in CITY where District is California.
+
+Solution:-
+  SELECT AVG(POPULATION) FROM CITY
+  WHERE DISTRICT = 'CALIFORNIA';
+--------------------------------------------------------------------------------------
+7) Query the average population for all cities in CITY, rounded down to the nearest integer.
+
+Solution:-
+  SELECT FLOOR(AVG(POPULATION)) FROM CITY;
+--------------------------------------------------------------------------------------
+8) Query the sum of the populations for all Japanese cities in CITY. The COUNTRYCODE for Japan is JPN.
+
+Solution:-
+  SELECT SUM(POPULATION) FROM CITY
+  WHERE COUNTRYCODE='JPN';
+--------------------------------------------------------------------------------------
+9) Query the difference between the maximum and minimum populations in CITY.
+
+Solution:-
+SELECT (MAX(POPULATION)-MIN(POPULATION)) FROM CITY;
+--------------------------------------------------------------------------------------
+10)
+
+Solution:-
+
+--------------------------------------------------------------------------------------
